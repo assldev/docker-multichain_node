@@ -13,6 +13,8 @@ services:
       - default_rpc_port=8002
     ports:
       - 8002:8002
+    volumes:
+      - ./admin_node_vol:/root/.multichain
     command: "/scripts/create_chain.sh"
     networks:
       network1:
@@ -26,7 +28,10 @@ services:
       - chain_name=chain1
       - admin_ip=admin_node_ip
       - admin_port=8001
+    volumes:
+      - ./peer_node_vol:/root/.multichain
     command: "/scripts/join_chain.sh"
+    stdin_open: true
     depends_on: 
       - admin_node
     networks: 
