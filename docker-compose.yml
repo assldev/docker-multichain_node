@@ -1,0 +1,35 @@
+version: '3.2'
+
+networks:
+  network1:
+
+services:
+  admin_node:
+    build: .
+    image: multichain_node
+    environment:
+      - chain_name=chain1
+      - default_network_port=8001
+      - default_rpc_port=8002
+    ports:
+      - 8002:8002
+    command: "/scripts/create_chain.sh"
+    networks:
+      network1:
+        aliases:
+          - admin_node_ip
+
+
+  peer_node:
+    image: multichain_node
+    environment:
+      - chain_name=chain1
+      - admin_ip=admin_node_ip
+      - admin_port=8001
+    command: "/scripts/join_chain.sh"
+    depends_on: 
+      - admin_node
+    networks: 
+      network1:
+        aliases:
+          - peer_node_ip
