@@ -17,7 +17,7 @@ services:
       - 8002:8002
     volumes:
       - ./admin_node_vol:/root/.multichain
-    command: "/scripts/create_chain.sh"
+    command: "/multichain_launch_scripts/create_chain.sh"
     networks:
       network1:
         aliases:
@@ -36,7 +36,7 @@ services:
       - 8003:8002
     volumes:
       - ./peer_node_vol:/root/.multichain
-    command: "/scripts/join_chain.sh"
+    command: "/multichain_launch_scripts/join_chain.sh"
     depends_on: 
       - admin_node
     networks: 

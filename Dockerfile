@@ -13,9 +13,9 @@ WORKDIR /multichain_download/multichain-1.0.6
 RUN mv multichaind multichain-cli multichain-util /usr/local/bin
 
 # COPY SCRIPT THAT CREATES, PRINTS CONFIGURATION & INITIALIZES A CHAIN INSTANCE
-ADD ./scripts/ /scripts/
-RUN chmod +x /scripts/create_chain.sh
-RUN chmod +x /scripts/join_chain.sh
+ADD ./scripts/ /multichain_launch_scripts/
+RUN chmod +x /multichain_launch_scripts/create_chain.sh
+RUN chmod +x /multichain_launch_scripts/join_chain.sh
 
-# CMD ["/scripts/create_chain.sh"]
-# CMD ["/scripts/join_chain.sh"]
+# CMD ["/multichain_launch_scripts/create_chain.sh"]
+# CMD ["/multichain_launch_scripts/join_chain.sh"]
