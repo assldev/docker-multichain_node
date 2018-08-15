@@ -1,7 +1,3 @@
-```
-Refer docker-compose.yml for a 2-node multichain network (1 has admin privilleges, the other has only connect privillege).
-```
-
 # Multichain configurations
 
 ## Framework provided
@@ -26,3 +22,8 @@ TBD
 
 # Container configurations
 TBD
+
+# Running the network
+```
+Refer docker-compose.yml for a 2-node multichain network (1 has admin privilleges, the other has only connect privillege).
+```
