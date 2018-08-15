@@ -29,6 +29,4 @@
 * Environment variables `admin_ip` & `admin_port` - Socket information of other nodes (generally the first) is necessary for all nodes (except the first one) so they can connect (to form the P2p nework).
 
 # Running the network
-```
 Refer docker-compose.yml for a 2-node multichain network (1 has admin privilleges, the other has only connect privillege).
-```
