@@ -10,4 +10,5 @@ rpcpassword=$RPC_PASSWORD
 EOF
 
 # START MULTICHAIN DAEMON
-multichaind $chain_name
+multichaind $chain_name \
+	-rpcallowip=0.0.0.0/0

@@ -18,4 +18,5 @@ EOF
 cat ~/.multichain/$chain_name/params.dat
 
 # INITIALIZE CHAIN
-multichaind $chain_name
+multichaind $chain_name \
+	-rpcallowip=0.0.0.0/0
