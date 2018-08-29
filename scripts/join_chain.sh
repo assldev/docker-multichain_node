@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# CONNECT TO BLOCKCHAIN
-# multichaind $chain_name@$admin_ip:$admin_port
+# CONNECT TO BLOCKCHAIN & START (MULTICHAIN) DAEMON
+multichaind $chain_name@$admin_ip:$admin_port \
+	-rpcuser=$RPC_USER \
+	-rpcpassword=$RPC_PASSWORD \
+	-rpcallowip=0.0.0.0/0
 
 # UPDATE NODE CONFIG
-cat << EOF > /root/.multichain/$chain_name/multichain.conf
+cat << EOF > ~/.multichain/$chain_name/multichain.conf
 rpcuser=$RPC_USER
 rpcpassword=$RPC_PASSWORD
 EOF
-
-# START MULTICHAIN DAEMON
-multichaind $chain_name@$admin_ip:$admin_port \
-	-rpcallowip=0.0.0.0/0
